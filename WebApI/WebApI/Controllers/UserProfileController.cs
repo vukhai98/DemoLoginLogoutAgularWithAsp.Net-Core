@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApI.Models;
@@ -23,7 +21,6 @@ namespace WebApI.Controllers
 
         [HttpGet("getuserprofile")]
         [Authorize]
-        //GET: /api/UserProfile
         public async Task<Object> GetUserProfile()
         {
             string userId = User.Claims.First(c => c.Type == "UserID").Value;

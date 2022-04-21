@@ -1,18 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../shared/user.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styles: [
-  ]
+  styles: []
 })
 export class HomeComponent implements OnInit {
 
+  readonly BaseURI = 'https://localhost:5002/api';
+
   userDetails:any;
 
-  constructor(private router:Router,private service:UserService) {
+
+  constructor(private router:Router,private service:UserService,private http: HttpClient ) {
 
    }
 

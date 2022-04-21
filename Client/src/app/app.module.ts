@@ -14,6 +14,10 @@ import { UserService } from './shared/user.service';
 import { LoginComponent } from './user/login/login.component';
 import { HomeComponent } from './home/home.component';
 import {AuthInterceptor} from './auth/auth.interceptor';
+import { ProductComponent } from './product/product.component';
+import { ProductService } from './shared/product.service';
+import {CreatProductComponent} from './product/creat-product/creat-product.component';
+
 
 
 @NgModule({
@@ -23,6 +27,8 @@ import {AuthInterceptor} from './auth/auth.interceptor';
     RegistrationComponent,
     LoginComponent,
     HomeComponent,
+    ProductComponent,
+    CreatProductComponent
 
   ],
   imports: [
@@ -38,7 +44,7 @@ import {AuthInterceptor} from './auth/auth.interceptor';
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
-  }],
+  },ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

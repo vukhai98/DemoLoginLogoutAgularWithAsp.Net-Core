@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -24,13 +25,15 @@ namespace WebApI.Controllers
             _applicationSettings = applicationSettings.Value;
         }
 
+     
+
         /// <summary>
         ///
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost("register")]
-        public async Task<Object> CreatUser(ApplicationUserModel model)
+        public async Task<Object> CreatUser([FromBody] ApplicationUserModel model)
         {
             var applicationUser = new ApplicationUser()
             {
@@ -52,7 +55,7 @@ namespace WebApI.Controllers
 
         [HttpPost("login")]
         //POST: /api/users/login
-        public async Task<IActionResult> Login(LoginModel model)
+        public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
             var user = await _userManager.FindByNameAsync(model.UserName);
             if (user != null && await _userManager.CheckPasswordAsync(user,model.Password))
