@@ -1,11 +1,12 @@
+
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/shared/product.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-creat-product',
-  templateUrl: './creat-product.component.html',
-  styleUrls: ['./creat-product.component.css']
+  selector: 'app-creatproduct',
+  templateUrl: './creatproduct.component.html',
+  styleUrls: ['./creatproduct.component.css']
 })
 export class CreatProductComponent implements OnInit {
 
@@ -30,3 +31,5 @@ export class CreatProductComponent implements OnInit {
   }
 
 }
+
+

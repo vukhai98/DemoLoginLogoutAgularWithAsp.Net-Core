@@ -1,0 +1,22 @@
+<table class="table">
+    <thead>
+        <tr>
+            <td>Number</td>
+            <td>Name</td>
+            <td>Details</td>
+            <td>Image</td>
+            <td>Cost</td>
+            <td>IsDeleted</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of listProducts;index as i">
+            <td>{{i}}</td>
+            <td>{{product.Name}}</td>
+            <td>{{product.Details}}</td>
+            <td>{{product.Image}}</td>
+            <td>{{product.Cost}}</td>
+            <td>{{product.IsDeleted}}</td>
+        </tr>
+    </tbody>
+</table>

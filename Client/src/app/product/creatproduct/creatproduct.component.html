@@ -1,27 +1,27 @@
 <form [formGroup]="productService.formProduct" autocomplete="off" (submit)="onSubmit()">
-    <div class="form-group required">
+    <div class="form-group col-md-8 required">
         <label>Name</label>
         <input class="form-control" formControlName="Name">
     </div>
-    <div class="form-group required">
+    <div class="form-group col-md-8 required">
         <label>Details</label>
         <input class="form-control" formControlName="Details">
     </div>
-    <div class="form-group required">
+    <div class="form-group col-md-8 required">
         <label>Image</label>
         <input class="form-control" formControlName="Image">
     </div>
-    <div class="form-group required">
+    <div class="form-group col-md-8 required">
         <label>Cost</label>
         <input class="form-control" formControlName="Cost">
     </div>
-    <div class="form-group required">
+    <div class="form-group col-md-8 required">
         <label>IsDeleted</label>
         <input class="form-control" formControlName="IsDeleted">
     </div>
     <div class="form-row">
         <div class="form-group col-md-8 offset-md-4">
-            <button type="submit" class="btn btn-danger btn-block" [disabled]="!productService.formProduct.valid">Creat</button>
+            <button type="submit" class="btn btn-warning btn-block" [disabled]="!productService.formProduct.valid">Creat</button>
         </div>
     </div>
 </form>

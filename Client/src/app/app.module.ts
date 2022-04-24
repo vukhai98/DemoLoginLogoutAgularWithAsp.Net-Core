@@ -14,9 +14,9 @@ import { UserService } from './shared/user.service';
 import { LoginComponent } from './user/login/login.component';
 import { HomeComponent } from './home/home.component';
 import {AuthInterceptor} from './auth/auth.interceptor';
-import { ProductComponent } from './product/product.component';
 import { ProductService } from './shared/product.service';
-import {CreatProductComponent} from './product/creat-product/creat-product.component';
+import { ListproductComponent } from './product/listproduct/listproduct.component';
+import { CreatProductComponent } from './product/creatproduct/creatproduct.component';
 
 
 
@@ -27,7 +27,7 @@ import {CreatProductComponent} from './product/creat-product/creat-product.compo
     RegistrationComponent,
     LoginComponent,
     HomeComponent,
-    ProductComponent,
+    ListproductComponent,
     CreatProductComponent
 
   ],

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../shared/user.service';
 import { HttpClient } from '@angular/common/http';
+import { ProductService } from '../shared/product.service';
 
 @Component({
   selector: 'app-home',
@@ -13,9 +14,10 @@ export class HomeComponent implements OnInit {
   readonly BaseURI = 'https://localhost:5002/api';
 
   userDetails:any;
+  listProducts: any;
 
 
-  constructor(private router:Router,private service:UserService,private http: HttpClient ) {
+  constructor(private router:Router,private service:UserService,private http: HttpClient ,private productService: ProductService) {
 
    }
 
@@ -29,6 +31,14 @@ export class HomeComponent implements OnInit {
       }
 
     );
+    this.productService.getListProduct().subscribe(
+      res=>{
+        this.listProducts = res;
+      },
+      err =>{
+        console.log(err);
+      }
+    )
   }
 
   onLogout(){

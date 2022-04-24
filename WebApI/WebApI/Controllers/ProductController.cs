@@ -19,7 +19,7 @@ namespace WebApI.Controllers
         }
 
         [HttpGet("getallproducts")]
-        public  IActionResult GetAllProducts(string searchString,int? page ,int? pageSize)
+        public  IActionResult GetAllProducts([FromForm]string searchString,int? page ,int? pageSize)
         {
             if (page == null || page.Value == 0) page = 1;
             if (pageSize == null || pageSize.Value == 0) pageSize = 10;

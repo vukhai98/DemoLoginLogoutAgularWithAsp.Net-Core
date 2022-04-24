@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder, Validators,FormControl,FormGroup } from '@angular/forms';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import { catchError, Observable, of, tap } from 'rxjs';
+import { Product } from '../product';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +30,11 @@ export class ProductService {
       Cost: this.formProduct.value.Cost
     };
     return this.http.post(this.BaseURI +'/product/creatproduct',body);
+  }
+  getListProduct() : Observable<Product[]>{
+    return this.http.get<Product[]>(this.BaseURI + '/product/getallproducts').pipe(
+        tap(sucess => console.log(`success = ${JSON.stringify(sucess)}`)),
+        catchError(error => of([]))
+    );
   }
 }

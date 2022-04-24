@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 body {
-    background-color: #04c582;
+    background-color: white;
     ;
 }
 
@@ -139,4 +139,8 @@ div.form-group label:first-child {
 
 .d-block {
     margin-top: 10px;
+}
+
+.wrapper {
+    margin: 50px 0 50px;
 }
