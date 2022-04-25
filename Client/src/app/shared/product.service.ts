@@ -37,4 +37,11 @@ export class ProductService {
         catchError(error => of([]))
     );
   }
+
+  getProductDetail(id: any) : Observable<Product[]>{
+    return this.http.get<Product[]>(this.BaseURI + `/product/getproduct/${id}`).pipe(
+        catchError(error => of([]))
+    );
+  }
+
 }

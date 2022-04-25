@@ -1,22 +1,26 @@
 <table class="table">
     <thead>
         <tr>
-            <td>Number</td>
+            <td>ID</td>
             <td>Name</td>
-            <td>Details</td>
+            <td>Name</td>
             <td>Image</td>
             <td>Cost</td>
             <td>IsDeleted</td>
+            <td>Options</td>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let product of listProducts;index as i">
-            <td>{{i}}</td>
-            <td>{{product.Name}}</td>
-            <td>{{product.Details}}</td>
-            <td>{{product.Image}}</td>
-            <td>{{product.Cost}}</td>
-            <td>{{product.IsDeleted}}</td>
+        <tr *ngFor="let product of listProducts">
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.details}}</td>
+            <td> <img width="150px" src="{{product.image}}" alt=""></td>
+            <td>{{product.cost}}</td>
+            <td>{{product.isDeleted}}</td>
+            <td>
+                <a [routerLink]="['/productdetails',product.id]">Show details</a>
+            </td>
         </tr>
     </tbody>
 </table>

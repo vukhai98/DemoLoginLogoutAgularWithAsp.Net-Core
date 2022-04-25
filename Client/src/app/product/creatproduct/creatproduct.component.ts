@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/shared/product.service';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -10,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CreatProductComponent implements OnInit {
 
-  constructor(public productService: ProductService,private toastr : ToastrService) { }
+  constructor(public productService: ProductService,private toastr : ToastrService,private router :Router) { }
 
   ngOnInit(): void {
   }
@@ -19,10 +20,12 @@ export class CreatProductComponent implements OnInit {
       (res: any) =>{
         if(res.succeded){
           this.productService.formProduct.reset();
+
           this.toastr.success('New product created!','Created product successfull.');
+
         }
         else{
-          res.err('Please, You watched formProduct !')
+          res.err('Please, You watched formProduct !');
         }
       },
       err=>{

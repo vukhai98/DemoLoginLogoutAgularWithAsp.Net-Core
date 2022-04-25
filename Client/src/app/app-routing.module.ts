@@ -7,6 +7,7 @@ import { ListproductComponent } from './product/listproduct/listproduct.componen
 import { LoginComponent } from './user/login/login.component';
 import { RegistrationComponent } from './user/registration/registration.component';
 import { UserComponent } from './user/user.component';
+import { ProductdetailsComponent } from './product/productdetails/productdetails.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/user/login',pathMatch:'full'},
@@ -16,15 +17,13 @@ const routes: Routes = [
       {path: 'registration',component:RegistrationComponent},
       {path: 'login',component:LoginComponent}
     ]
-  },
-  {path:'home',component:HomeComponent,canActivate:[AuthGuard]},
-
-
+   },
+  {path:'home',component:HomeComponent,canActivate:[AuthGuard],
+children :  [
+  {path: 'listproduct', component: ListproductComponent,},
   {path: 'creatproduct',component:CreatProductComponent},
-
-
-  {path: 'listproduct', component: ListproductComponent}
-
+  ]},
+  {path: 'productdetails/:id',component:ProductdetailsComponent}
 ];
 
 @NgModule({

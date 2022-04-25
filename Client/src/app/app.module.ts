@@ -17,6 +17,7 @@ import {AuthInterceptor} from './auth/auth.interceptor';
 import { ProductService } from './shared/product.service';
 import { ListproductComponent } from './product/listproduct/listproduct.component';
 import { CreatProductComponent } from './product/creatproduct/creatproduct.component';
+import { ProductdetailsComponent } from './product/productdetails/productdetails.component';
 
 
 
@@ -28,7 +29,8 @@ import { CreatProductComponent } from './product/creatproduct/creatproduct.compo
     LoginComponent,
     HomeComponent,
     ListproductComponent,
-    CreatProductComponent
+    CreatProductComponent,
+    ProductdetailsComponent
 
   ],
   imports: [

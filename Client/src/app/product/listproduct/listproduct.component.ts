@@ -9,7 +9,7 @@ import { ProductService } from 'src/app/shared/product.service';
 })
 export class ListproductComponent implements OnInit {
 
-  listProducts: any;
+  listProducts: Product[] =[];
   constructor(public service:ProductService) { }
 
 
@@ -20,7 +20,7 @@ export class ListproductComponent implements OnInit {
         console.log(this.listProducts);
     },
     error => {
-      console.log("System error API")
+      console.log(error);
     })
   }
 

@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApI.Models;
@@ -12,10 +14,12 @@ namespace WebApI.Controllers
     public class ProductController : Controller
     {
         private readonly AuthenticationContext _context;
+        private readonly IWebHostEnvironment _webHostEnviroment;
 
-        public ProductController(AuthenticationContext context)
+        public ProductController(AuthenticationContext context, IWebHostEnvironment webHostEnviroment)
         {
             _context = context;
+            _webHostEnviroment = webHostEnviroment;
         }
 
         [HttpGet("getallproducts")]
@@ -40,7 +44,7 @@ namespace WebApI.Controllers
 
         }
 
-        [HttpGet("getroduct/{id}")]
+        [HttpGet("getproduct/{id}")]
         public IActionResult GetProduct(int id)
         {
             var result = _context.Products.FirstOrDefault(x => x.ID == id);
@@ -52,15 +56,35 @@ namespace WebApI.Controllers
         }
 
         [HttpPost("creatproduct")]
-        public async Task<IActionResult> CreatProduct([FromBody]Product product)
+        public async Task<IActionResult> CreatProduct([FromForm] ProductViewModel product)
         {
+            // Get folder include  img 
+            // If not exist creat folder
+            // If folder exist build pathfileImage 
+            //Copy file to Folder 
+            string fileName = string.Empty;
+            
+            string imgUrl = string.Empty; 
+
+            if (product.UpLoadImage != null)
+            {
+                var uniqueFileeName = Path.GetFileNameWithoutExtension(fileName) + "_" + Guid.NewGuid().ToString().Substring(0, 4) + Path.GetExtension(product.UpLoadImage.FileName);
+                var uploads = Path.Combine(_webHostEnviroment.WebRootPath, "uploads");
+                var filePath = Path.Combine(uploads, uniqueFileeName);
+                product.UpLoadImage.CopyTo(new FileStream(filePath, FileMode.Create));
+                imgUrl = filePath;
+
+            }
+
             var newProuduct = new Product()
             {
                 Name = product.Name,
                 Details = product.Details,
-                Image = product.Image,
+                Image = imgUrl,
                 Cost = product.Cost,
-                IsDeleted = product.IsDeleted
+                IsDeleted = product.IsDeleted,
+
+                
             };
             try
             {
@@ -72,7 +96,7 @@ namespace WebApI.Controllers
             {
                 throw;
             }
-        }
+            }
 
         [HttpPut("updateproduct")]
         public async Task<IActionResult> UpdateProduct(Product product)
