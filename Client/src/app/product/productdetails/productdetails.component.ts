@@ -11,10 +11,10 @@ import { ProductService } from 'src/app/shared/product.service';
 })
 export class ProductdetailsComponent implements OnInit,OnDestroy {
 
-  public id?: number;
+   id!: number;
 
-  public subscription? : Subscription;
-  public product : any;
+   subscription? : Subscription;
+   product! : Product;
 
   constructor(private router: Router,private activatedRout: ActivatedRoute,public service:ProductService) { }
 
@@ -23,13 +23,17 @@ export class ProductdetailsComponent implements OnInit,OnDestroy {
       {this.id = params['id'];
     });
     this.service.getProductDetail(this.id).subscribe(
-      (response : any)=>{
+      (response)=>{
         this.product = response;
     },
     error => {
       console.log(error);
     })
     }
+
+  GotoListProduct(){
+    this.router.navigateByUrl('/home/listproduct')
+  }
 
   ngOnDestroy(){
       this.subscription?.unsubscribe();

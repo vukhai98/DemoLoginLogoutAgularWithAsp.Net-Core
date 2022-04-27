@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using WebApI.Models;
 
@@ -23,7 +24,7 @@ namespace WebApI.Controllers
         }
 
         [HttpGet("getallproducts")]
-        public  IActionResult GetAllProducts([FromForm]string searchString,int? page ,int? pageSize)
+        public  IActionResult GetAllProducts(string searchString,int? page ,int? pageSize)
         {
             if (page == null || page.Value == 0) page = 1;
             if (pageSize == null || pageSize.Value == 0) pageSize = 10;
@@ -62,20 +63,17 @@ namespace WebApI.Controllers
             // If not exist creat folder
             // If folder exist build pathfileImage 
             //Copy file to Folder 
-            string fileName = string.Empty;
-            
-            string imgUrl = string.Empty; 
+
+            string imgUrl = string.Empty;
 
             if (product.UpLoadImage != null)
             {
-                var uniqueFileeName = Path.GetFileNameWithoutExtension(fileName) + "_" + Guid.NewGuid().ToString().Substring(0, 4) + Path.GetExtension(product.UpLoadImage.FileName);
-                var uploads = Path.Combine(_webHostEnviroment.WebRootPath, "uploads");
-                var filePath = Path.Combine(uploads, uniqueFileeName);
-                product.UpLoadImage.CopyTo(new FileStream(filePath, FileMode.Create));
-                imgUrl = filePath;
+                var uniqueFileName = Path.GetFileNameWithoutExtension(product.UpLoadImage.FileName) + "_" + Guid.NewGuid().ToString().Substring(0, 4) + Path.GetExtension(product.UpLoadImage.FileName);
+                var filePath = Path.Combine(_webHostEnviroment.WebRootPath, "Image", uniqueFileName);
+                await product.UpLoadImage.CopyToAsync(new FileStream(filePath, FileMode.Create));
+                imgUrl = $"Image/{uniqueFileName}";
 
             }
-
             var newProuduct = new Product()
             {
                 Name = product.Name,

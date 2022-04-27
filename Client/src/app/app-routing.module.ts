@@ -18,12 +18,14 @@ const routes: Routes = [
       {path: 'login',component:LoginComponent}
     ]
    },
+
   {path:'home',component:HomeComponent,canActivate:[AuthGuard],
 children :  [
   {path: 'listproduct', component: ListproductComponent,},
   {path: 'creatproduct',component:CreatProductComponent},
+  {path: 'productdetails/:id',component:ProductdetailsComponent},
   ]},
-  {path: 'productdetails/:id',component:ProductdetailsComponent}
+
 ];
 
 @NgModule({

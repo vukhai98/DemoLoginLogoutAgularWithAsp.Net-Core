@@ -11,7 +11,14 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CreatProductComponent implements OnInit {
 
+  // public fileToUpload = <File>files[0];
+
+  // const formData = new FormData();
+  // formData.append('file',fileToUpload,fileToUpload.name)
+
   constructor(public productService: ProductService,private toastr : ToastrService,private router :Router) { }
+
+
 
   ngOnInit(): void {
   }

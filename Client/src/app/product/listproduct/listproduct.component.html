@@ -15,11 +15,11 @@
             <td>{{product.id}}</td>
             <td>{{product.name}}</td>
             <td>{{product.details}}</td>
-            <td> <img width="150px" src="{{product.image}}" alt=""></td>
+            <td> <img width="150px" src="https://localhost:5002/{{product.image}}" alt=""></td>
             <td>{{product.cost}}</td>
             <td>{{product.isDeleted}}</td>
             <td>
-                <a [routerLink]="['/productdetails',product.id]">Show details</a>
+                <a [routerLink]="['/home/productdetails',product.id]">Show detail</a>
             </td>
         </tr>
     </tbody>

@@ -1,10 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace WebApI.Models
 {
@@ -20,13 +16,13 @@ namespace WebApI.Models
         public string Details { get; set; }
 
         [Column(TypeName = "ntext")]
-        public string Image { get; set; }
+        public string? Image { get; set; }
 
         //[FileExtensions(Extensions =".png,.jpg,.jpeg,.gif")]
-        public IFormFile UpLoadImage { set; get; }
+        public IFormFile? UpLoadImage { set; get; }
+
         public int? Cost { get; set; }
 
         public bool? IsDeleted { get; set; }
-
     }
 }

@@ -19,8 +19,6 @@ import { ListproductComponent } from './product/listproduct/listproduct.componen
 import { CreatProductComponent } from './product/creatproduct/creatproduct.component';
 import { ProductdetailsComponent } from './product/productdetails/productdetails.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +28,7 @@ import { ProductdetailsComponent } from './product/productdetails/productdetails
     HomeComponent,
     ListproductComponent,
     CreatProductComponent,
-    ProductdetailsComponent
+    ProductdetailsComponent,
 
   ],
   imports: [
