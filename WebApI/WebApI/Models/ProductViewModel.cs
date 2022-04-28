@@ -9,7 +9,6 @@ namespace WebApI.Models
         public int ID { get; set; }
 
         [StringLength(50)]
-        [Required]
         public string Name { get; set; }
 
         [Column(TypeName = "ntext")]

@@ -13,7 +13,7 @@
     </div>
     <div class="form-group col-md-8 required">
         <label>UpLoadImage</label>
-        <input type="file" class="form-control" formControlName="UpLoadImage">
+        <input type="file" (change)="onSelectFile($event)" placeholder="Chose a file" class="form-control" formControlName="UpLoadImage">
     </div>
     <div class="form-group col-md-8 required">
         <label>Cost</label>

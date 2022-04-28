@@ -10,17 +10,20 @@ import { Product } from '../product';
   providedIn: 'root'
 })
 export class ProductService {
+
+  public selectedFile!: File ;
+
   constructor(private fb:FormBuilder,private http: HttpClient) { }
   readonly BaseURI = 'https://localhost:5002/api';
 
   formProduct = this.fb.group({
-    Name: ['',Validators.required],
-    Details:['',[Validators.required,Validators.maxLength(200)]],
-    Image: ['',],
-    UpLoadImage : [''],
-    Cost : ['',Validators.required],
-    IsDeleted : ['',Validators.required]
-  });
+
+    Name: new FormControl(null),
+    Details:new FormControl(null),
+    Image: new FormControl(null),
+    UpLoadImage :new FormControl(null),
+    Cost : new FormControl(null),
+  })
 
   creatProduct(){
     var body = {
@@ -29,7 +32,6 @@ export class ProductService {
       Image: this.formProduct.value.Image,
       UpLoadImage : this.formProduct.value.UpLoadImage,
       Cost: this.formProduct.value.Cost,
-      IsDeleted: this.formProduct.value.IsDeleted
     };
     return this.http.post(this.BaseURI +'/product/creatproduct',body);
   }

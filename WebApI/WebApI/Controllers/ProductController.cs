@@ -80,7 +80,7 @@ namespace WebApI.Controllers
                 Details = product.Details,
                 Image = imgUrl,
                 Cost = product.Cost,
-                IsDeleted = product.IsDeleted,
+                IsDeleted = false,
 
                 
             };

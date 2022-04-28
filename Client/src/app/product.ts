@@ -5,6 +5,6 @@ export interface Product {
   details: string,
   image: string,
   upLoadImage: File,
-  cost: number,
+  cost: any,
   isDeleted: boolean
 }

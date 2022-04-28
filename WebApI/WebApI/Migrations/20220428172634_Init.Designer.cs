@@ -10,7 +10,7 @@ using WebApI.Models;
 namespace WebApI.Migrations
 {
     [DbContext(typeof(AuthenticationContext))]
-    [Migration("20220421033137_Init")]
+    [Migration("20220428172634_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -243,6 +243,7 @@ namespace WebApI.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
