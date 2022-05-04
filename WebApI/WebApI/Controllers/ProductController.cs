@@ -44,6 +44,29 @@ namespace WebApI.Controllers
 
 
         }
+        [HttpGet("getallimages")]
+        public IActionResult GetAllImages(string searchString, int? page, int? pageSize)
+        {
+            if (page == null || page.Value == 0) page = 1;
+            if (pageSize == null || pageSize.Value == 0) pageSize = 10;
+
+            var query = _context.Products.Where(x => x.Image != null)
+                   .Select(x => new 
+                   {
+                       Id = x.ID,
+                       Image = x.Image
+                   }).AsQueryable();
+            if (query.Count() > 0)
+            {
+                var result = query?.Skip((page.Value - 1) * pageSize.Value).Take(pageSize.Value)?.ToList();
+                return Ok(result);
+            }
+            return BadRequest();
+
+
+
+
+        }
 
         [HttpGet("getproduct/{id}")]
         public IActionResult GetProduct(int id)

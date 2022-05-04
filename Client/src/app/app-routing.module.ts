@@ -8,6 +8,7 @@ import { LoginComponent } from './user/login/login.component';
 import { RegistrationComponent } from './user/registration/registration.component';
 import { UserComponent } from './user/user.component';
 import { ProductdetailsComponent } from './product/productdetails/productdetails.component';
+import { ListimagesComponent } from './product/listimages/listimages.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/user/login',pathMatch:'full'},
@@ -24,6 +25,8 @@ children :  [
   {path: 'listproduct', component: ListproductComponent,},
   {path: 'creatproduct',component:CreatProductComponent},
   {path: 'productdetails/:id',component:ProductdetailsComponent},
+  {path: 'listimages',component: ListimagesComponent},
+
   ]},
 
 ];

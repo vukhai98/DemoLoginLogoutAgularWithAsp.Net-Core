@@ -16,6 +16,8 @@ export class CreatProductComponent implements OnInit {
   selectedFile!: File ;
   public product! : Product[];
 
+  public formProduct! : FormGroup;
+
 
   constructor(
     public productService: ProductService,
@@ -25,16 +27,17 @@ export class CreatProductComponent implements OnInit {
     public http: HttpClient
   ) {}
 
-  formProduct = new FormGroup({
-    Name: new FormControl(''),
-    Details:new FormControl(''),
-    Image: new FormControl(''),
-    UpLoadImage :new FormControl(''),
-    Cost : new FormControl(''),
-  });
+
 
 
   ngOnInit(): void {
+    this.formProduct = new FormGroup({
+      Name: new FormControl(''),
+      Details:new FormControl(''),
+      Image: new FormControl(''),
+      UpLoadImage :new FormControl(''),
+      Cost : new FormControl(''),
+    });
 
   }
   onSelectFile(fileInput: any) {
@@ -59,5 +62,7 @@ export class CreatProductComponent implements OnInit {
     });
 
     this.formProduct.reset();
+    this.router.navigateByUrl('/home/listproduct');
+
   }
 }

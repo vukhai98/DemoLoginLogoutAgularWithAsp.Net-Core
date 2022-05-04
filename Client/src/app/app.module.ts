@@ -18,6 +18,8 @@ import { ProductService } from './shared/product.service';
 import { ListproductComponent } from './product/listproduct/listproduct.component';
 import { CreatProductComponent } from './product/creatproduct/creatproduct.component';
 import { ProductdetailsComponent } from './product/productdetails/productdetails.component';
+import { UploadComponent } from './upload/upload.component';
+import { ListimagesComponent } from './product/listimages/listimages.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { ProductdetailsComponent } from './product/productdetails/productdetails
     ListproductComponent,
     CreatProductComponent,
     ProductdetailsComponent,
-
+    UploadComponent,
+    ListimagesComponent,
   ],
   imports: [
     BrowserModule,

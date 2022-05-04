@@ -42,4 +42,8 @@ export class ProductService {
    return this.http.get<Product>(this.BaseURI + `/product/getproduct/${id}`);
   }
 
+  getImages() : Observable<Product[]>{
+    return this.http.get<Product[]>(this.BaseURI + '/product/getallimages');
+  }
+
 }

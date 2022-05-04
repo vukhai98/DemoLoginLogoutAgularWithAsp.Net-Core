@@ -1,4 +1,4 @@
-<form [formGroup]="productService.formProduct" autocomplete="off" (submit)="onSubmit()">
+<form [formGroup]="formProduct" autocomplete="off" (submit)="onSubmit()">
     <div class="form-group col-md-8 required">
         <label>Name</label>
         <input class="form-control" formControlName="Name">
@@ -15,6 +15,7 @@
         <label>UpLoadImage</label>
         <input type="file" (change)="onSelectFile($event)" placeholder="Chose a file" class="form-control" formControlName="UpLoadImage">
     </div>
+    <!-- <app-upload></app-upload> -->
     <div class="form-group col-md-8 required">
         <label>Cost</label>
         <input class="form-control" formControlName="Cost">
@@ -25,3 +26,5 @@
         </div>
     </div>
 </form>
+<p>Form value:</p>
+<pre>{{formProduct.value| json}}</pre>

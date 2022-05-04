@@ -1,0 +1,14 @@
+<table class="table">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Image</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let image of listImage">
+            <td>{{image.id}}</td>
+            <td> <img width="150px" src="https://localhost:5002/{{image.image}}" alt=""></td>
+        </tr>
+    </tbody>
+</table>
