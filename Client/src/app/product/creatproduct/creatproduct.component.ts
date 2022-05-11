@@ -34,7 +34,6 @@ export class CreatProductComponent implements OnInit {
     this.formProduct = new FormGroup({
       Name: new FormControl(''),
       Details:new FormControl(''),
-      Image: new FormControl(''),
       UpLoadImage :new FormControl(''),
       Cost : new FormControl(''),
     });
@@ -50,19 +49,18 @@ export class CreatProductComponent implements OnInit {
     let formData = new FormData();
     formData.append('Name', this.formProduct.value.Name);
     formData.append('Details', this.formProduct.value.Details);
-    formData.append('Image', this.formProduct.value.Image);
     formData.append('Cost', this.formProduct.value.Cost);
     formData.append('UpLoadImage', this.selectedFile);
 
 
     this.http.post('https://localhost:5002/api/product/creatproduct', formData)
     .subscribe(res => {
-
-      alert('Uploaded!!');
+      this.toastr.success('Creat product is successfull! ')
     });
 
     this.formProduct.reset();
     this.router.navigateByUrl('/home/listproduct');
+
 
   }
 }

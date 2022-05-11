@@ -19,9 +19,9 @@
             <td>{{product.cost}}</td>
             <td>{{product.isDeleted}}</td>
             <td>
-                <a [routerLink]="['/home/productdetails',product.id]">Show detail</a>
+                <button class="btn btn-primary" (click)="openDialog()">Detail</button>
+                <!-- <a [routerLink]="['/home/productdetails',product.id]">Show detail</a> -->
             </td>
         </tr>
     </tbody>
 </table>
-<app-listimages></app-listimages>

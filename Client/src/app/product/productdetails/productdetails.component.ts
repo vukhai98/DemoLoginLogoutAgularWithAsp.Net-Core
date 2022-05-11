@@ -16,13 +16,13 @@ export class ProductdetailsComponent implements OnInit,OnDestroy {
    subscription? : Subscription;
    product! : Product;
 
-  constructor(private router: Router,private activatedRout: ActivatedRoute,public service:ProductService) { }
+  constructor(private router: Router,private activatedRout: ActivatedRoute,public productService:ProductService) { }
 
   ngOnInit(): void {
     this.subscription = this.activatedRout.params.subscribe(params =>
       {this.id = params['id'];
     });
-    this.service.getProductDetail(this.id).subscribe(
+    this.productService.getProductDetail(this.id).subscribe(
       (response)=>{
         this.product = response;
     },

@@ -20,7 +20,7 @@ import { CreatProductComponent } from './product/creatproduct/creatproduct.compo
 import { ProductdetailsComponent } from './product/productdetails/productdetails.component';
 import { UploadComponent } from './upload/upload.component';
 import { ListimagesComponent } from './product/listimages/listimages.component';
-
+import {MatDialogModule} from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +36,7 @@ import { ListimagesComponent } from './product/listimages/listimages.component';
   ],
   imports: [
     BrowserModule,
+    MatDialogModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,

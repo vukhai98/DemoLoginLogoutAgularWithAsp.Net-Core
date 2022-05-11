@@ -1,25 +1,24 @@
-<table>
-    <tr>
-        <td>Id</td>
-        <td>{{id}}</td>
-    </tr>
-    <tr>
-        <td>Name</td>
-        <td>{{product.name}}</td>
-    </tr>
-    <tr>
-        <td>Image</td>
-        <td> <img width="150px" src="https://localhost:5002/{{product.image}}" alt=""></td>
-    </tr>
-    <tr>
-        <td>Cost</td>
-        <td>{{product.cost}}</td>
-    </tr>
-    <tr>
-        <td>IsDeleted</td>
-        <td>{{product.isDeleted}}</td>
-    </tr>
+<table class="table">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Details</td>
+            <td>Image</td>
+            <td>Cost</td>
+            <td>IsDeleted</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.details}}</td>
+            <td> <img width="150px" src="https://localhost:5002/{{product.image}}" alt=""></td>
+            <td>{{product.cost}}</td>
+            <td>{{product.isDeleted}}</td>
+        </tr>
+    </tbody>
 </table>
-<a class="btn btn-primary" routerLink="['overview']">Overview</a>
-<a class="btn btn-primary" routerLink="['projects']">Projects</a>
-<a class="btn btn-default" routerLink="['/home/listproduct']" routerLinkActive="active">Go back</a>
+
+<a class="btn btn-primary" routerLink="/home/listproduct" routerLinkActive="active">Go back</a>
