@@ -7,13 +7,15 @@
                 <li class="nav-item"><a class="nav-link active" aria-current="page" routerLink="listproduct" routerLinkActive="active">Product List</a></li>
                 <li class="nav-item"><a class="nav-link active" aria-current="page" routerLink="creatproduct" routerLinkActive="active">Create Product</a></li>
                 <li class="nav-item"><a class="nav-link active" aria-current="page" routerLink="listimages" routerLinkActive="active">List Image</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" routerLink="listemployees" routerLinkActive="active">List Employees</a></li>
                 <li class="nav-item"><a class="nav-link active" aria-current="page" routerLink="login" (click)="onLogout()">Logout</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
-<router-outlet></router-outlet>
+<router-outlet>
+</router-outlet>
 <!-- <div class="card m-5" style="width:18rem" *ngIf="userDetails">
     <ul class="list-group">
         <li class="list-group-item"><strong>Username : </strong>{{userDetails.userName}}</li>

@@ -6,6 +6,7 @@ namespace WebApI.Models
 {
     public class ProductViewModel
     {
+     
         public int ID { get; set; }
 
         [StringLength(50)]

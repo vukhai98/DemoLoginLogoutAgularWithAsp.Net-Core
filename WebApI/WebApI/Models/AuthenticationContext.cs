@@ -12,5 +12,7 @@ namespace WebApI.Models
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
         public DbSet<Product> Products { get; set; }
+
+        public DbSet<Employees> Employees { get; set; }
     }
 }

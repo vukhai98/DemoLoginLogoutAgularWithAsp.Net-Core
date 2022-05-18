@@ -9,6 +9,7 @@ import { RegistrationComponent } from './user/registration/registration.componen
 import { UserComponent } from './user/user.component';
 import { ProductdetailsComponent } from './product/productdetails/productdetails.component';
 import { ListimagesComponent } from './product/listimages/listimages.component';
+import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/user/login',pathMatch:'full'},
@@ -22,11 +23,11 @@ const routes: Routes = [
 
   {path:'home',component:HomeComponent,canActivate:[AuthGuard],
 children :  [
-  {path: 'listproduct', component: ListproductComponent,},
+  {path: 'listproduct', component: ListproductComponent},
+  {path: 'listemployees', component: EmployeeListComponent},
   {path: 'creatproduct',component:CreatProductComponent},
   {path: 'productdetails/:id',component:ProductdetailsComponent},
   {path: 'listimages',component: ListimagesComponent},
-
   ]},
 
 ];

@@ -31,7 +31,7 @@ export class ListproductComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "60%"
-    this.dialog.open(ProductdetailsComponent,dialogConfig)
+    this.dialog.open(CreatProductComponent,dialogConfig);
   }
 
 }
