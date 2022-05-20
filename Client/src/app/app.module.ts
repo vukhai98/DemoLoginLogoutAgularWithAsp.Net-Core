@@ -76,6 +76,7 @@ import { EmployeeListComponent } from './employees/employee-list/employee-list.c
     MatSortModule,
     MatPaginatorModule,
     MatDialogModule,
+
   ],
   providers: [
     UserService,

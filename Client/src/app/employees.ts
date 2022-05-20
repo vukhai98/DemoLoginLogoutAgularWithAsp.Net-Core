@@ -7,5 +7,7 @@ export interface Employee{
   gender : number,
   department: string,
   hireDate : Date,
-  isPermanent: boolean
+  isPermanent: boolean,
+  imageFile : File,
+  image : string
 }
